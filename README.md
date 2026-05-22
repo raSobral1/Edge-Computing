@@ -1,5 +1,5 @@
 <h1 align="center">🍷 Vinheria Agnelo Inteligente com Arduino</h1>
-<h2 align="center">🌡️ Monitoramento de Temperatura e Umidade</h2>
+<h2 align="center">⚙️ Monitoramento de Temperatura, Umidade e Iluminação</h2>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Arduino-Project-blue?style=for-the-badge&logo=arduino">
@@ -34,8 +34,8 @@
 
 - 💡 **LEDs (indicadores de luminosidade)** → representam visualmente o nível de luz do ambiente:
   - 🟢 **LED verde** → luminosidade ideal (ambiente adequado para armazenamento)  
-  - 🟡 **LED amarelo** → luminosidade moderada (nível de atenção)  
-  - 🔴 **LED vermelho** → luminosidade alta (situação crítica, pode prejudicar o vinho)  
+  - 🟡 **LED amarelo** → luminosidade moderada (nível de atenção) || → Quando a temperatura estiver fora do ideal(alto ou baixa) 
+  - 🔴 **LED vermelho** → luminosidade alta (situação crítica, pode prejudicar o vinho) || → Quando a umidade estiver fora do ideal(alto ou baixa)   
 
 - 🧩 **Protoboard** → usada para organizar as conexões sem precisar soldar  
 - 🔗 **Jumpers (fios)** → fazem a comunicação entre todos os componentes  
@@ -75,10 +75,11 @@ Nosso projeto simula uma adega inteligente, ou seja, um sistema automatizado que
 
 👉 Mas por que isso é importante?
 
-Vinhos precisam ficar em condições específicas para não perder qualidade. Dois fatores são essenciais:
+Vinhos precisam ficar em condições específicas para não perder qualidade. Três fatores são essenciais:
 
 - 🌡️ Temperatura
 - 💧 Umidade
+- 💡Iluminação
 
 Se esses fatores saem do ideal, o vinho pode estragar.
 
@@ -121,11 +122,11 @@ Mostra as informações para o usuário:
 ---
 
 ### 💡 LEDs (sistema de iluminação/alerta visual)  
-Funcionam como um indicador rápido da **luminosidade do ambiente**:
+Funcionam como um indicador rápido da **luminosidade, Temperatura e Umidade do ambiente**:
 
 - 🟢 **LED verde** → luz ideal (condição adequada)  
-- 🟡 **LED amarelo** → luz moderada (atenção)  
-- 🔴 **LED vermelho** → luz alta (situação crítica)  
+- 🟡 **LED amarelo** → luz moderada (atenção) || temperatura estiver fora do ideal(alto ou baixa) 
+- 🔴 **LED vermelho** → luz alta (situação crítica) || umidade estiver fora do ideal(alto ou baixa)     
 
 👉 Assim, o usuário consegue entender o ambiente **sem precisar ler o display**.  
 
@@ -223,6 +224,8 @@ else {
   // Ambiente ideal
 }
 
+- A mesma logica de if/else para o sensor de luminosidade(LDR), apenas diferenças nos valores. 
+
 👉 O Arduino usa decisões simples (if/else), como se fosse um “SE isso acontecer → FAÇA aquilo”.
 
 ---
@@ -252,6 +255,8 @@ Os valores de temperatura e umidade considerados ideais podem ser ajustados no c
 - ✔ Aprender como funciona o Arduino
 - ✔ Trabalhar com sensores reais (DHT11)
 - ✔ Exibir dados em um display LCD
+- ✔ Trabalhar com sensor (LDR)
+- ✔ Usar leds para resposta rápida sobre o sistema
 - ✔ Criar lógica de decisão (if/else)
 - ✔ Simular automação do mundo real
 
