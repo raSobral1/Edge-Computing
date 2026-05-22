@@ -28,21 +28,37 @@
 ### 🔍 Entendendo a ligação (explicação simples)
 
 - 🔌 **Arduino Uno** → funciona como o cérebro do sistema, controlando todos os componentes  
+- 🌗 **Sensor de luminosidade (LDR)** → mede a quantidade de luz no ambiente  
 - 🌡️ **Sensor DHT11** → mede a temperatura e a umidade do ambiente em tempo real  
-- 📟 **Display LCD** → mostra as informações para o usuário (temperatura, umidade e status)  
-- 💡 **LEDs (indicadores visuais)** → ajudam a identificar rapidamente a situação do ambiente:
-  - 🔴 **LED vermelho** → indica alerta de temperatura alta  
-  - 🟢 **LED verde** → indica condição ideal do ambiente (tudo OK)  
-  - 🟡 **LED amarelo** → indica atenção (umidade fora do ideal ou situação intermediária)  
+- 📟 **Display LCD** → mostra as informações para o usuário (temperatura, umidade e status do sistema)  
+
+- 💡 **LEDs (indicadores de luminosidade)** → representam visualmente o nível de luz do ambiente:
+  - 🟢 **LED verde** → luminosidade ideal (ambiente adequado para armazenamento)  
+  - 🟡 **LED amarelo** → luminosidade moderada (nível de atenção)  
+  - 🔴 **LED vermelho** → luminosidade alta (situação crítica, pode prejudicar o vinho)  
+
 - 🧩 **Protoboard** → usada para organizar as conexões sem precisar soldar  
 - 🔗 **Jumpers (fios)** → fazem a comunicação entre todos os componentes  
 
-👉 O Arduino recebe os dados do sensor DHT11, analisa as condições do ambiente e responde de duas formas:
+---
 
-1. Exibindo as informações no display LCD  
-2. Acendendo LEDs para indicar rapidamente o estado do sistema  
+👉 O funcionamento do sistema acontece da seguinte forma:
 
-👉 Assim, mesmo sem olhar o display, é possível entender a situação apenas pelas cores dos LEDs.
+1. O sensor LDR mede a luminosidade do ambiente  
+2. O sensor DHT11 mede a temperatura e a umidade  
+3. O Arduino recebe todos esses dados e faz a análise  
+4. Com base nas condições, ele executa duas ações:
+   - Exibe as informações no display LCD  
+   - Acende o LED correspondente ao nível de luminosidade  
+
+---
+
+- 📟 Pelo **display LCD** → informações completas (temperatura, umidade e status)  
+- 💡 Pelos **LEDs** → resposta rápida sobre a luminosidade  
+
+---
+
+👉 Esse tipo de sistema é utilizado na vida real para monitoramento de ambientes sensíveis, como adegas, laboratórios e estoques, garantindo condições ideais de conservação.
 
 ---
 
@@ -70,38 +86,58 @@ Se esses fatores saem do ideal, o vinho pode estragar.
 
 ---
 
-🧩 O que cada parte do sistema faz (explicação simples)
+## 🧩 O que cada parte do sistema faz (explicação simples)
 
 ---
 
-🔌 Arduino Uno (o cérebro)
-
-Recebe as informações dos sensores, toma decisões e controla o que será exibido.
-
----
-
-🌡️ Sensor DHT11 (os “olhos” do sistema)
-
-Mede:
-
-- Temperatura do ambiente
-- Umidade do ar
-
-👉 Ele envia esses dados para o Arduino o tempo todo.
+### 🔌 Arduino Uno (o cérebro)  
+Recebe todas as informações dos sensores, toma decisões e controla os LEDs e o display.  
 
 ---
 
-📟 Display LCD (a “tela”)
-
-Mostra as informações para o usuário em tempo real:
-
-- Temperatura
-- Umidade
-- Status do ambiente
-
-👉 É como um visor de painel de carro.
+### 🌗 Sensor de luminosidade (LDR)  
+Mede a quantidade de luz no ambiente.  
+👉 Quanto mais luz, menor a resistência; quanto menos luz, maior a resistência.  
 
 ---
+
+### 🌡️ Sensor DHT11  
+Mede:  
+- Temperatura do ambiente  
+- Umidade do ar  
+
+👉 Envia esses dados constantemente para o Arduino.  
+
+---
+
+### 📟 Display LCD  
+Mostra as informações para o usuário:  
+- Temperatura  
+- Umidade  
+- Status do sistema  
+
+👉 Funciona como uma “tela informativa”.  
+
+---
+
+### 💡 LEDs (sistema de iluminação/alerta visual)  
+Funcionam como um indicador rápido da **luminosidade do ambiente**:
+
+- 🟢 **LED verde** → luz ideal (condição adequada)  
+- 🟡 **LED amarelo** → luz moderada (atenção)  
+- 🔴 **LED vermelho** → luz alta (situação crítica)  
+
+👉 Assim, o usuário consegue entender o ambiente **sem precisar ler o display**.  
+
+---
+
+### 🧩 Protoboard  
+Organiza as conexões sem necessidade de solda.  
+
+---
+
+### 🔗 Jumpers (fios)  
+Responsáveis por conectar todos os componentes entre si.  
 
 🔧 Potenciômetro
 
@@ -118,6 +154,7 @@ Controla o contraste do display (deixa a tela mais clara ou mais escura).
 - 🔩 Resistores
 - 🧩 Protoboard
 - 🔗 Jumpers
+- 🌗 Sensor de luminosidade (LDR)
 - 🟢🔴 Leds
 
 ---
